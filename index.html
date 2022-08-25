@@ -15,10 +15,10 @@
     if ('OTPCredential' in window) {
       window.addEventListener('DOMContentLoaded', e => {
         alert('otp is supported');
-        const ac = new AbortController();
+        //const ac = new AbortController();
         navigator.credentials.get({
           otp: { transport:['sms'] },
-          signal: ac.signal
+          //signal: ac.signal
         }).then(otp => {
           otpIn.value = otp.code;
         }).catch(err => {
