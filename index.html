@@ -8,11 +8,11 @@
 </head>
 <body>
   <p>otp testing</p>
-  <input type="text" autocomplete="one-time-code" inputmode="numeric">
+  <input type="text" id="inputbox" inputmode="numeric">
   <script>
     if ('OTPCredential' in window) {
   window.addEventListener('DOMContentLoaded', (e) => {
-    const input = document.querySelector('input[autocomplete="one-time-code"]');
+    const input = document.getElementById('inputbox');
     if (!input) return;
     const ac = new AbortController();
     setTimeout(()=>{
