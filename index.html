@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
 </head>
+
 <body>
   <p>otp testing</p>
   <input type="text" id="inputbox" inputmode="numeric">
   <script>
     if ('OTPCredential' in window) {
-  window.addEventListener('DOMContentLoaded', (e) => {
-    const input = document.getElementById('inputbox');
-    if (!input) return;
-    const ac = new AbortController();
-    setTimeout(()=>{
-      ac.abort();
-    },600000)
-    navigator.credentials.get({
-      otp: { transport:['sms'] },
-      signal: ac.signal
-    }).then((otp) => {
-      alert(otp.code);
-      input.value = otp.code;
-    }).catch((err) => {
-      alert(err);
-      console.error(err);
-    });
-  });
-}
+      window.addEventListener('DOMContentLoaded', (e) => {
+        const input = document.getElementById('inputbox');
+        if (!input) return;
+        const ac = new AbortController();
+        setTimeout(() => {
+          ac.abort();
+        }, 600000)
+        navigator.credentials.get({
+          otp: { transport: ['sms'] },
+          signal: ac.signal
+        }).then((otp) => {
+          alert(typeof otp.code);
+          alert(otp.code);
+          input.value = otp.code;
+        }).catch((err) => {
+          alert(err);
+          console.error(err);
+        });
+      });
+    }
 
   </script>
 </body>
+
 </html>
